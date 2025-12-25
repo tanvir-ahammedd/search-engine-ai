@@ -38,7 +38,13 @@ sse_starlette
 python-dotenv
 ipykernel
 
+# Search Tools
 arxiv
 wikipedia
 duckduckgo-search
+ddgs
+
+# Streamlit
+streamlit
+
 
