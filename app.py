@@ -58,7 +58,7 @@ if prompt := st.chat_input(placeholder="What is machine learning?"):
     )
 
     with st.chat_message("assistant"):
-        st_cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=True)
+        st_cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=False)
         
         # Convert session messages to the format expected by the agent
         messages = [{"role": msg["role"], "content": msg["content"]} for msg in st.session_state.messages]
@@ -73,4 +73,5 @@ if prompt := st.chat_input(placeholder="What is machine learning?"):
         response = result["messages"][-1].content
         
         st.session_state.messages.append({'role': 'assistant', "content": response})
+
         st.write(response)
