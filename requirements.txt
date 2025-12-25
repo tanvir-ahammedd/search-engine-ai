@@ -1,0 +1,42 @@
+# Core LangChain
+langchain
+langchain_core
+langchain_community
+langchain-community
+langchain-text-splitters
+langchainhub
+
+langsmith
+
+# LLM Integrations
+langchain-groq
+langchain_huggingface
+
+# Embeddings & Vector Stores
+sentence_transformers
+faiss-cpu
+chromadb
+langchain_chroma
+
+# Document Loaders
+pypdf
+pymupdf
+bs4
+wikipedia
+arxiv
+
+# Data & Storage
+pandas
+duckdb
+
+fastapi
+uvicorn
+langserve
+sse_starlette
+
+# Environment & Dev Tools
+python-dotenv
+ipykernel
+
+arxiv
+wikipedia
