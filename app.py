@@ -121,10 +121,8 @@ for idx, col in enumerate([col1, col2, col3]):
     with col:
         if st.button(example_queries[idx], key=f"example_{idx}", use_container_width=True):
             st.session_state["selected_query"] = example_queries[idx]
-            st.rerun()
         if st.button(example_queries[idx + 3], key=f"example_{idx + 3}", use_container_width=True):
             st.session_state["selected_query"] = example_queries[idx + 3]
-            st.rerun()
 
 st.markdown("---")
 
@@ -142,12 +140,13 @@ for msg in st.session_state.messages:
         if msg.get("timestamp"):
             st.caption(f"🕐 {msg['timestamp']}")
 
+# Chat input - always visible
+prompt = st.chat_input(placeholder="Ask me anything...")
+
 # Handle selected query from examples
-if "selected_query" in st.session_state:
+if "selected_query" in st.session_state and not prompt:
     prompt = st.session_state["selected_query"]
     del st.session_state["selected_query"]
-else:
-    prompt = st.chat_input(placeholder="Ask me anything...")
 
 # Process user input
 if prompt:
@@ -260,11 +259,3 @@ if prompt:
                 "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 "sources": []
             })
-
-# Footer
-st.markdown("---")
-st.markdown("""
-<div style='text-align: center; color: gray; padding: 20px;'>
-    <p>Built with LangChain, Groq, and Streamlit | AI Research Assistant</p>
-</div>
-""", unsafe_allow_html=True)
